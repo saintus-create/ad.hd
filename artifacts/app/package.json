@@ -73,5 +73,10 @@
     "vite": "catalog:",
     "wouter": "^3.3.5",
     "zod": "catalog:"
+  },
+  "dependencies": {
+    "@uswds/uswds": "^3.13.0",
+    "magicui": "github:saintus-create/magicui",
+    "motion": "^12.38.0"
   }
 }

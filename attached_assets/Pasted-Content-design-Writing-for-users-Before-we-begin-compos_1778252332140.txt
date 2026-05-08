@@ -1,0 +1,267 @@
+Content design
+Writing for users
+Before we begin composing content, we must immerse ourselves in our users' needs, priorities, and goals. We’re their advocates, so we need to understand experiences from their point of view.
+
+We need to focus not only on the specific experience we're writing for, but on our users' lifecycles as riders, drivers, consumers, couriers, merchants, or advertisers with Uber. It's important to consider how our relationships with them evolve over time — beyond any individual metric or unique project’s requirements. 
+TL;DR
+
+Focus on our users' needs, priorities, and goals
+Prioritize impact on our users over impact on our business 
+Lead with the most important information
+Be clear, conversational, concise, and consistent
+Write in sentence case
+Avoid jargon, slang, idioms, acronyms, and technical language 
+Remember that the words we write are localized into dozens of languages
+
+
+Write like a human
+
+Communicating in a human voice conveys empathy and builds trust.
+
+
+It’s about the user, not Uber
+
+Consider the potential impact on users of the content that you’re crafting
+Focus on helping users solve their problems and meet their goals first; address business needs second
+Write in second-person voice (you, your) in body text; impactful text speaks directly to our target audience — not at or about them; refer to First and second person: You and I in Product tone to learn more about point of view
+Do
+Don't
+Insufficient License History means you may not have at least 1 year of licensed driving experience in the US.
+When a driver doesn’t have at least 1 year of licensed driving experience in the US, they have Insufficient License History.
+It's OK to use we, us, and our to refer to Uber, especially when describing something the company or a person at the company is doing
+Do	
+Don't
+Thanks for letting us know. Your feedback helps us improve Uber Eats.
+We’re matching you with a driver. [This can sound like people, not technology, are doing the matching.]
+Prioritize information
+
+The most important message should be the most noticeable in placement, size, and style
+Do
+Don't
+This card was declined by your bank.
+The issuing bank declined your card.
+Start headers and body text with information that corresponds with user goals, not to the action that’s required in the UI
+Do
+Don't
+To arrive on time, request a ride within 15 minutes.	
+Request a ride within 15 min to arrive on time.
+Be conversational
+
+Write with a direct and informal style as though you’re speaking with someone in a conversation
+Do
+Don't
+Where to?
+Enter destination of ride
+Use common contractions, which soften the text and save space; refer to Contractions for more guidance
+Do
+Don't
+You’re 50 points away from becoming a Gold member.
+You are 50 points away from becoming a Gold member.
+You'll get more trips if you drive during peak hours.
+You will get more trips if you drive during peak hours.
+Use articles (a, an, the) and possessive pronouns (your, their, our). Contractions keep text shorter, and they make text clearer to people using our products in a language they’re not fluent in. Note that in button labels, we rarely use articles and pronouns.
+Do
+Don't
+Take a photo 
+Take photo
+Meet your driver at the pickup spot.	
+Meet driver at pickup spot.	
+Be clear and consistent
+
+Above all else, be clear — your writing should help our users accomplish their goals
+Do
+Don't
+Arriving within 5 minutes
+Arriving soon
+Your photo was blurry. Try taking a new one with your face fully in the frame.
+There was a problem with your photo. Try taking a new one.
+Use language consistently across the UI to help users learn and understand how features work
+
+Be concise
+
+Use the fewest words necessary to communicate clearly
+Make sure every word has a purpose; if it doesn’t, cut it
+
+Be respectful
+
+Review Balancing etiquette in Product tone for guidance about when to say please, thank you, and sorry
+
+Be positive
+
+Use positive words and sentiments, instead of negative ones, to explain a situation
+
+Do
+Don't
+Your account needs attention
+Something’s wrong with your account
+We need a photo of your entire face to verify your account
+We can’t verify your account because your face is obscured
+
+Face verification failed
+Use simple words
+
+Use short words (basic vocabulary), phrases, and sentences
+Do
+Don't
+use
+utilize
+pay
+authorize payment
+Pick up the order
+The order is ready for you to pick up.
+Review earnings details
+Your earnings details are ready for review.
+Use simple verb forms and tenses
+
+Use the simplest form of a verb that makes sense in context. 
+Do
+Don't
+Do you want to . . . 
+Would you like to . . .
+Improve your ratings
+Learn how your ratings could be improved.
+Write in the present tense; use the future tense only when it’s necessary for clarity
+Do
+Avoid
+Taco Heaven opens at 4 PM.
+Taco Heaven will open at 4 PM.
+You're charged $25 if you park here.
+You’ll be charged $25 if you park here.
+You'll hear from us soon.
+[No clear way to communicate this with present tense]
+Use the simple past tense when the event you’re talking about already happened
+Do
+Don't
+You chose the full meal.
+You’ve chosen the full meal.
+The driver arrived at 8 PM.
+The driver has arrived.
+Use sentence case
+
+Capitalize proper nouns and branded terms only; try to minimize branded, capitalized names, as they add to a user’s cognitive load 
+Use capital letters for OK; refer to Capitalization for more guidance
+Do
+Don't
+Add items
+Add Items
+You’re now an Uber One member
+You’re now an Uber one member
+Use active voice  
+
+When possible, use active voice instead of passive voice, and be as straightforward as possible
+Do				
+Don't
+Learn how to improve your ratings.
+Learn how your ratings could be improved.
+Delays at the pickup point don’t affect estimated delivery times.
+Estimated delivery times aren't affected by delays at the pickup point.
+Understand the occasions when passive voice can be considerate and concise, and modulate as needed
+
+Do		
+Don't
+Your order is being prepared. 
+The restaurant is preparing your order.
+Message sent
+You sent a message to your next customer
+Avoid jargon, slang, and acronyms  
+
+Limit special terms. Every app uses special words, such as Quest or Trip Planner, to describe features. Terms like these can help solidify concepts for the user. However, too many can clutter content and make the UI more difficult to understand.
+Don’t capitalize words unnecessarily to turn them into feature names.
+Always favor straightforward language. Jargon and acronyms aren’t conversational, and while slang can be, it can be out of step with our overall voice.
+They're difficult to localize and for English-language drivers and couriers to understand.
+Do
+Don't
+Save money on fuel.
+Save money when you fuel up.
+Save money at the pumps.
+The rider is at the pickup location.
+The passenger is at the pickup point.
+Where possible, spell out acronyms and initialisms; always spell out uncommon ones
+Do	
+Don't
+Enter your Social Security number so we can begin your background check.
+Enter your SSN so we can begin your BGC.
+
+Don’t use internal Uber terminology in product. For guidance, consult Uber word list
+
+Avoid editorializing
+
+Don’t tell users how they should feel; simply provide them with the information they need and offer them a solution
+Avoid using adjectives like great, easy, helpful, simple, best, amazing, friendly, and so on
+Avoid using adverbs like always, never, quickly, simply, and so on
+Do
+Don't
+Get started with Uber
+It’s easy to drive with Uber
+Use navigation for an efficient route	
+Use navigation for a great route
+5 ways to improve your rating
+Helpful ways to improve your rating
+Avoid directional words
+
+Directional words (for example: below, above, or to the left of,) can lose their meaning when localized to a language that isn’t read left to right and top to bottom. They also don’t work with all assistive technologies or if the UI changes later on.
+
+Do
+Don't
+Tap Accept
+Tap the button below to accept
+Avoid referring to the UI
+
+When instructing users to interact with the UI, don’t mention buttons, menus, tabs, form fields, and other controls when you can avoid it. Instead, focus on the user’s intent or the label on the UI component.  
+
+Do
+Don't
+Choose Use this as my default card
+Click the Use this as my default card checkbox	
+Review your tips in Earnings
+Tap the Earnings tab here to review your tips
+Turn on <feature name> to use your Uber Cash
+Slide the <feature name> switch to On
+Account for dynamic content  
+
+Dynamic content can include the user’s name, a deadline, a time of day, or a location. 
+
+Insert dynamic content where it’s least likely to be truncated
+Make sure it won’t cause headers or other strings to break into more lines than the UI can accommodate.
+Do
+Don't
+[FIRSTNAME], take a quick selfie  (name < 6 characters)
+Take a quick selfie  (name > 6 characters)
+Keep localization in mind 
+
+Almost all in-app text for Uber products is localized in 50+ languages, so it's critical to be aware of how writing in English can affect translation.
+
+Expect a 40% increase in word length when translating English text into other languages
+Choose supporting content, such as images and videos, that will be appropriate for a global audience
+Avoid idioms and colloquial language that would require custom localization
+Do	
+Don't
+You're ready
+You're all set
+You earned a free delivery 
+You scored a free delivery
+Break up long text for legibility
+
+Long chunks of text can be hard to read and cause a screen to look unwelcoming, making users more likely to skip reading it altogether. 
+
+Break long body text every 5 lines, or every sentence, whichever is longer.
+
+
+
+
+
+
+
+
+
+
+
+
+Related resources
+
+Product voice
+Product tone
+Uber word list
+Capitalization
+Contractions
+Emojis
