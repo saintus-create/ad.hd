@@ -1,5 +1,4 @@
 import { BlurFade } from "@/components/magicui/blur-fade";
-import { BorderBeam } from "@/components/magicui/border-beam";
 
 const faqs = [
   {
@@ -28,11 +27,9 @@ export default function About() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <div className="bg-foreground text-background px-6 py-12">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <BlurFade delay={0} duration={0.4}>
-            <p className="text-xs font-semibold uppercase tracking-widest mb-2 opacity-60">
-              About
-            </p>
+            <p className="text-xs font-semibold mb-2 opacity-60">About</p>
             <h1 className="text-4xl font-bold mb-3">Our mission</h1>
             <p className="text-base opacity-75 max-w-xl">
               ADHD policy is scattered, dense, and hard to act on. We fix that.
@@ -41,7 +38,7 @@ export default function About() {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 py-14">
+      <div className="max-w-5xl mx-auto px-6 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-14">
           <BlurFade delay={0} duration={0.4} inView>
             <h2 className="text-xl font-bold mb-3">What we do</h2>
@@ -62,8 +59,7 @@ export default function About() {
         </div>
 
         <BlurFade delay={0.1} duration={0.4} inView>
-          <div className="relative border border-border rounded-lg p-8 bg-card overflow-hidden mb-14">
-            <BorderBeam size={80} duration={12} colorFrom="#000" colorTo="#666" />
+          <div className="rounded-lg p-8 bg-card/60 backdrop-blur-sm ring-1 ring-foreground/10 mb-14">
             <h2 className="text-xl font-bold mb-6">Frequently asked questions</h2>
             <div className="space-y-6">
               {faqs.map((faq, i) => (
@@ -80,9 +76,7 @@ export default function About() {
           <h2 className="text-xl font-bold mb-5">Contact us</h2>
           <form className="space-y-4 max-w-xl" onSubmit={(e) => e.preventDefault()}>
             <div>
-              <label className="block text-xs font-medium mb-1" htmlFor="name">
-                Your name
-              </label>
+              <label className="block text-xs font-medium mb-1" htmlFor="name">Your name</label>
               <input
                 id="name"
                 type="text"
@@ -91,9 +85,7 @@ export default function About() {
               />
             </div>
             <div>
-              <label className="block text-xs font-medium mb-1" htmlFor="email">
-                Email
-              </label>
+              <label className="block text-xs font-medium mb-1" htmlFor="email">Email</label>
               <input
                 id="email"
                 type="email"
@@ -102,9 +94,7 @@ export default function About() {
               />
             </div>
             <div>
-              <label className="block text-xs font-medium mb-1" htmlFor="message">
-                Message
-              </label>
+              <label className="block text-xs font-medium mb-1" htmlFor="message">Message</label>
               <textarea
                 id="message"
                 rows={4}

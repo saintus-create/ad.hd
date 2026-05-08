@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BlurFade } from "@/components/magicui/blur-fade";
+import { SliderTabs } from "@/components/slider-tabs";
 
 const categories = ["All", "Education", "Workplace", "Healthcare", "Federal", "State"];
 
@@ -84,9 +85,7 @@ export default function Policies() {
 
   const filtered = policies.filter((p) => {
     const matchesCategory =
-      activeCategory === "All" ||
-      p.category === activeCategory ||
-      p.level === activeCategory;
+      activeCategory === "All" || p.category === activeCategory || p.level === activeCategory;
     const matchesSearch =
       search === "" ||
       p.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -97,11 +96,9 @@ export default function Policies() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <div className="bg-foreground text-background px-6 py-12">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <BlurFade delay={0} duration={0.4}>
-            <p className="text-xs font-semibold uppercase tracking-widest mb-2 opacity-60">
-              Policy clearinghouse
-            </p>
+            <p className="text-xs font-semibold mb-2 opacity-60">Policy clearinghouse</p>
             <h1 className="text-4xl font-bold mb-3">ADHD policies and laws</h1>
             <p className="text-base opacity-75 max-w-xl">
               Federal and state policies indexed for education, workplace, and healthcare. Updated regularly.
@@ -110,8 +107,8 @@ export default function Policies() {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 py-8">
-        <div className="flex flex-col sm:flex-row gap-4 mb-8">
+      <div className="max-w-5xl mx-auto px-6 py-8">
+        <div className="flex flex-col sm:flex-row gap-4 mb-2">
           <input
             type="search"
             placeholder="Search policies..."
@@ -119,22 +116,14 @@ export default function Policies() {
             onChange={(e) => setSearch(e.target.value)}
             className="flex-1 border border-border rounded px-4 py-2 text-sm bg-background focus:outline-none focus:ring-1 focus:ring-foreground"
           />
-          <div className="flex flex-wrap gap-2">
-            {categories.map((c) => (
-              <button
-                key={c}
-                onClick={() => setActiveCategory(c)}
-                className={`px-3 py-1.5 text-xs font-medium rounded border transition-colors ${
-                  activeCategory === c
-                    ? "bg-foreground text-background border-foreground"
-                    : "border-border text-muted-foreground hover:border-foreground/40"
-                }`}
-              >
-                {c}
-              </button>
-            ))}
-          </div>
         </div>
+
+        <SliderTabs
+          options={categories}
+          value={activeCategory}
+          onChange={setActiveCategory}
+          className="mb-6"
+        />
 
         <p className="text-xs text-muted-foreground mb-6">
           {filtered.length} {filtered.length === 1 ? "result" : "results"}
@@ -143,24 +132,24 @@ export default function Policies() {
         <div className="space-y-4">
           {filtered.map((p, i) => (
             <BlurFade key={p.id} delay={0.04 * i} duration={0.35} inView>
-              <div className="border border-border rounded-lg p-5 bg-card hover:border-foreground/20 transition-colors">
+              <div className="rounded-lg p-5 bg-card/60 backdrop-blur-sm ring-1 ring-foreground/10 hover:ring-foreground/25 transition-all">
                 <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
                   <h2 className="text-base font-semibold">{p.title}</h2>
                   <span
                     className={`text-xs font-medium px-2 py-0.5 rounded shrink-0 ${
                       p.status === "Active"
                         ? "bg-foreground text-background"
-                        : "border border-border text-muted-foreground"
+                        : "ring-1 ring-border text-muted-foreground"
                     }`}
                   >
                     {p.status}
                   </span>
                 </div>
-                <p className="text-sm text-muted-foreground mb-3">{p.summary}</p>
+                <p className="text-sm text-muted-foreground mb-3 line-clamp-3">{p.summary}</p>
                 <div className="flex gap-3 text-xs text-muted-foreground">
-                  <span className="border border-border px-2 py-0.5 rounded">{p.level}</span>
-                  <span className="border border-border px-2 py-0.5 rounded">{p.category}</span>
-                  <span className="border border-border px-2 py-0.5 rounded">{p.year}</span>
+                  <span className="ring-1 ring-foreground/15 px-2 py-0.5 rounded">{p.level}</span>
+                  <span className="ring-1 ring-foreground/15 px-2 py-0.5 rounded">{p.category}</span>
+                  <span className="ring-1 ring-foreground/15 px-2 py-0.5 rounded">{p.year}</span>
                 </div>
               </div>
             </BlurFade>

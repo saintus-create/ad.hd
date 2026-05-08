@@ -75,8 +75,8 @@ export function ResearchGlobe() {
           <FadeIn delay={120} distance={20} duration={550}>
             <div className="absolute top-0 left-0 z-10 px-4 md:px-8 pt-8 pb-4 pointer-events-none">
               <div className="inline-block border border-white/12 px-3 py-1 mb-3">
-                <span className="t-sub text-[10px] font-semibold uppercase tracking-widest">
-                  Global Research Coverage
+                <span className="t-sub text-[10px] font-semibold">
+                  Global research coverage
                 </span>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight">
@@ -147,11 +147,11 @@ export function ResearchGlobe() {
                 style={{ background: "rgba(10,10,10,0.88)", backdropFilter: "blur(8px)" }}
               >
                 <div className="flex items-center gap-1 mb-4">
-                  <span className="text-[9px] t-muted uppercase tracking-widest mr-0.5">Less</span>
+                  <span className="text-[9px] t-muted mr-0.5">Less</span>
                   {(["#162d47","#1a4480","#005ea2","#1464b0","#1a9af5"] as const).map((c) => (
                     <div key={c} className="flex-1 h-2" style={{ background: c }} aria-hidden="true" />
                   ))}
-                  <span className="text-[9px] t-muted uppercase tracking-widest ml-0.5">More</span>
+                  <span className="text-[9px] t-muted ml-0.5">More</span>
                 </div>
 
                 <div className="space-y-1.5 max-h-64 overflow-y-auto pr-1">

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BlurFade } from "@/components/magicui/blur-fade";
+import { SliderTabs } from "@/components/slider-tabs";
 
 const audiences = ["All", "Individuals", "Families", "Educators", "Healthcare", "Employers"];
 
@@ -81,17 +82,14 @@ const resources = [
 export default function Resources() {
   const [active, setActive] = useState("All");
 
-  const filtered =
-    active === "All" ? resources : resources.filter((r) => r.audience === active);
+  const filtered = active === "All" ? resources : resources.filter((r) => r.audience === active);
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <div className="bg-foreground text-background px-6 py-12">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <BlurFade delay={0} duration={0.4}>
-            <p className="text-xs font-semibold uppercase tracking-widest mb-2 opacity-60">
-              Resources
-            </p>
+            <p className="text-xs font-semibold mb-2 opacity-60">Resources</p>
             <h1 className="text-4xl font-bold mb-3">Find what you need</h1>
             <p className="text-base opacity-75 max-w-xl">
               Curated resources for individuals, families, educators, employers, and healthcare providers.
@@ -100,22 +98,13 @@ export default function Resources() {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 py-8">
-        <div className="flex flex-wrap gap-2 mb-8">
-          {audiences.map((a) => (
-            <button
-              key={a}
-              onClick={() => setActive(a)}
-              className={`px-3 py-1.5 text-xs font-medium rounded border transition-colors ${
-                active === a
-                  ? "bg-foreground text-background border-foreground"
-                  : "border-border text-muted-foreground hover:border-foreground/40"
-              }`}
-            >
-              {a}
-            </button>
-          ))}
-        </div>
+      <div className="max-w-5xl mx-auto px-6 py-8">
+        <SliderTabs
+          options={audiences}
+          value={active}
+          onChange={setActive}
+          className="mb-8"
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {filtered.map((r, i) => (
@@ -124,10 +113,10 @@ export default function Resources() {
                 href={r.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block border border-border rounded-lg p-5 bg-card hover:border-foreground/30 transition-colors h-full"
+                className="group flex flex-col h-full rounded-lg p-5 bg-card/60 backdrop-blur-sm ring-1 ring-foreground/10 hover:ring-foreground/25 transition-all"
               >
-                <div className="flex justify-between items-start gap-2 mb-2">
-                  <span className="text-xs border border-border px-2 py-0.5 rounded text-muted-foreground">
+                <div className="flex justify-between items-start gap-2 mb-3">
+                  <span className="text-xs ring-1 ring-foreground/15 px-2 py-0.5 rounded text-muted-foreground">
                     {r.type}
                   </span>
                   <span className="text-xs font-medium bg-foreground text-background px-2 py-0.5 rounded">
@@ -135,7 +124,7 @@ export default function Resources() {
                   </span>
                 </div>
                 <h2 className="text-base font-semibold mb-2 group-hover:underline">{r.title}</h2>
-                <p className="text-sm text-muted-foreground">{r.description}</p>
+                <p className="text-sm text-muted-foreground line-clamp-3 flex-1">{r.description}</p>
               </a>
             </BlurFade>
           ))}
