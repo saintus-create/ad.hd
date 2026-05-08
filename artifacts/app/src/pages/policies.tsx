@@ -1,0 +1,177 @@
+import { useState } from "react";
+import { BlurFade } from "@/components/magicui/blur-fade";
+
+const categories = ["All", "Education", "Workplace", "Healthcare", "Federal", "State"];
+
+const policies = [
+  {
+    id: 1,
+    title: "Individuals with Disabilities Education Act (IDEA)",
+    category: "Education",
+    level: "Federal",
+    year: 2004,
+    summary: "Ensures students with ADHD receive free, appropriate public education through IEPs and 504 plans.",
+    status: "Active",
+  },
+  {
+    id: 2,
+    title: "Section 504 of the Rehabilitation Act",
+    category: "Education",
+    level: "Federal",
+    year: 1973,
+    summary: "Prohibits discrimination against students with disabilities, including ADHD, in schools receiving federal funding.",
+    status: "Active",
+  },
+  {
+    id: 3,
+    title: "Americans with Disabilities Act (ADA)",
+    category: "Workplace",
+    level: "Federal",
+    year: 1990,
+    summary: "Requires employers to provide reasonable accommodations for employees with ADHD.",
+    status: "Active",
+  },
+  {
+    id: 4,
+    title: "Mental Health Parity and Addiction Equity Act",
+    category: "Healthcare",
+    level: "Federal",
+    year: 2008,
+    summary: "Requires insurers to cover mental health and ADHD treatment at parity with physical health care.",
+    status: "Active",
+  },
+  {
+    id: 5,
+    title: "ADHD Medication Management Modernization Act",
+    category: "Healthcare",
+    level: "Federal",
+    year: 2023,
+    summary: "Expands telehealth prescribing authority for ADHD stimulant medications post-COVID.",
+    status: "Pending",
+  },
+  {
+    id: 6,
+    title: "California AB 2822 — ADHD Awareness in Schools",
+    category: "Education",
+    level: "State",
+    year: 2022,
+    summary: "Requires California school districts to include ADHD in educator training programs.",
+    status: "Active",
+  },
+  {
+    id: 7,
+    title: "New York ADHD Workplace Accommodation Guidelines",
+    category: "Workplace",
+    level: "State",
+    year: 2021,
+    summary: "State guidance expanding ADA workplace accommodations for ADHD in public sector roles.",
+    status: "Active",
+  },
+  {
+    id: 8,
+    title: "Stimulant Drug Shortage Emergency Response Act",
+    category: "Healthcare",
+    level: "Federal",
+    year: 2023,
+    summary: "Directs HHS to address ongoing Adderall and amphetamine supply chain shortages.",
+    status: "Active",
+  },
+];
+
+export default function Policies() {
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [search, setSearch] = useState("");
+
+  const filtered = policies.filter((p) => {
+    const matchesCategory =
+      activeCategory === "All" ||
+      p.category === activeCategory ||
+      p.level === activeCategory;
+    const matchesSearch =
+      search === "" ||
+      p.title.toLowerCase().includes(search.toLowerCase()) ||
+      p.summary.toLowerCase().includes(search.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
+  return (
+    <div className="min-h-screen bg-background text-foreground font-sans">
+      <div className="bg-foreground text-background px-6 py-12">
+        <div className="max-w-4xl mx-auto">
+          <BlurFade delay={0} duration={0.4}>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-2 opacity-60">
+              Policy clearinghouse
+            </p>
+            <h1 className="text-4xl font-bold mb-3">ADHD policies and laws</h1>
+            <p className="text-base opacity-75 max-w-xl">
+              Federal and state policies indexed for education, workplace, and healthcare. Updated regularly.
+            </p>
+          </BlurFade>
+        </div>
+      </div>
+
+      <div className="max-w-4xl mx-auto px-6 py-8">
+        <div className="flex flex-col sm:flex-row gap-4 mb-8">
+          <input
+            type="search"
+            placeholder="Search policies..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="flex-1 border border-border rounded px-4 py-2 text-sm bg-background focus:outline-none focus:ring-1 focus:ring-foreground"
+          />
+          <div className="flex flex-wrap gap-2">
+            {categories.map((c) => (
+              <button
+                key={c}
+                onClick={() => setActiveCategory(c)}
+                className={`px-3 py-1.5 text-xs font-medium rounded border transition-colors ${
+                  activeCategory === c
+                    ? "bg-foreground text-background border-foreground"
+                    : "border-border text-muted-foreground hover:border-foreground/40"
+                }`}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <p className="text-xs text-muted-foreground mb-6">
+          {filtered.length} {filtered.length === 1 ? "result" : "results"}
+        </p>
+
+        <div className="space-y-4">
+          {filtered.map((p, i) => (
+            <BlurFade key={p.id} delay={0.04 * i} duration={0.35} inView>
+              <div className="border border-border rounded-lg p-5 bg-card hover:border-foreground/20 transition-colors">
+                <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
+                  <h2 className="text-base font-semibold">{p.title}</h2>
+                  <span
+                    className={`text-xs font-medium px-2 py-0.5 rounded shrink-0 ${
+                      p.status === "Active"
+                        ? "bg-foreground text-background"
+                        : "border border-border text-muted-foreground"
+                    }`}
+                  >
+                    {p.status}
+                  </span>
+                </div>
+                <p className="text-sm text-muted-foreground mb-3">{p.summary}</p>
+                <div className="flex gap-3 text-xs text-muted-foreground">
+                  <span className="border border-border px-2 py-0.5 rounded">{p.level}</span>
+                  <span className="border border-border px-2 py-0.5 rounded">{p.category}</span>
+                  <span className="border border-border px-2 py-0.5 rounded">{p.year}</span>
+                </div>
+              </div>
+            </BlurFade>
+          ))}
+          {filtered.length === 0 && (
+            <p className="text-sm text-muted-foreground py-10 text-center">
+              No policies match your search. Try a different term or category.
+            </p>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}

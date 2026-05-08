@@ -1,13 +1,91 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
-import NotFound from "@/pages/not-found";
+import { Switch, Route, Router as WouterRouter, Link, useLocation } from "wouter";
 import Home from "@/pages/home";
+import Policies from "@/pages/policies";
+import Resources from "@/pages/resources";
+import About from "@/pages/about";
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/policies", label: "Policies" },
+  { href: "/resources", label: "Resources" },
+  { href: "/about", label: "About" },
+];
+
+function Nav() {
+  const [location] = useLocation();
+  return (
+    <nav className="bg-background border-b border-border sticky top-0 z-20">
+      <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
+        <Link
+          href="/"
+          className="text-sm font-bold tracking-tight"
+        >
+          ADHD Policy Clearinghouse
+        </Link>
+        <div className="flex items-center gap-1">
+          {navLinks.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className={`px-3 py-1.5 text-xs font-medium rounded transition-colors ${
+                location === l.href
+                  ? "bg-foreground text-background"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {l.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="border-t border-border mt-auto">
+      <div className="max-w-4xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <p className="text-xs text-muted-foreground">
+          Built with USWDS · Open access · No login required
+        </p>
+        <div className="flex gap-4">
+          {navLinks.slice(1).map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {l.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </footer>
+  );
+}
 
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route component={NotFound} />
-    </Switch>
+    <div className="flex flex-col min-h-screen">
+      <Nav />
+      <main className="flex-1">
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/policies" component={Policies} />
+          <Route path="/resources" component={Resources} />
+          <Route path="/about" component={About} />
+          <Route>
+            <div className="max-w-4xl mx-auto px-6 py-20 text-center">
+              <h1 className="text-2xl font-bold mb-2">Page not found</h1>
+              <p className="text-sm text-muted-foreground mb-6">Check the URL or go back home.</p>
+              <Link href="/" className="text-sm font-medium underline">Go home</Link>
+            </div>
+          </Route>
+        </Switch>
+      </main>
+      <Footer />
+    </div>
   );
 }
 
