@@ -169,5 +169,46 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-color: #0a0a0a;
+    color: #adadad;
   }
+}
+
+/* ── Design-system text tokens ──────────────────────────────────────────── */
+.t-body  { color: #adadad; }
+.t-sub   { color: #8c8c8c; }
+.t-muted { color: #6a6a6a; }
+.t-ghost { color: #444444; }
+
+/* ── Depth layers (section backgrounds) ─────────────────────────────────── */
+.hero-depth {
+  background: #0a0a0a;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,94,162,0.12) 0%, transparent 70%);
+}
+
+.stat-card-depth {
+  background: #0d0d0d;
+  background-image:
+    radial-gradient(ellipse 100% 80% at 50% 0%, rgba(0,94,162,0.06) 0%, transparent 60%);
+}
+
+.card-row-depth {
+  background: #0d0d0d;
+}
+
+.compare-panel-depth {
+  background: #111111;
+}
+
+/* ── USWDS banner reset (prevent white flash) ────────────────────────────── */
+.usa-banner {
+  background-color: #1b1b1b !important;
+  color: #adadad !important;
+}
+.usa-banner__header {
+  color: #adadad !important;
+}
+.usa-banner__button {
+  color: #73b3e7 !important;
 }
