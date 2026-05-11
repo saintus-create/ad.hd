@@ -106,7 +106,6 @@ export default function Policies() {
           </BlurFade>
         </div>
       </div>
-
       <div className="max-w-5xl mx-auto px-6 py-8">
         <div className="flex flex-col sm:flex-row gap-4 mb-2">
           <input
@@ -136,11 +135,7 @@ export default function Policies() {
                 <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
                   <h2 className="text-base font-semibold">{p.title}</h2>
                   <span
-                    className={`text-xs font-medium px-2 py-0.5 rounded shrink-0 ${
-                      p.status === "Active"
-                        ? "bg-foreground text-background"
-                        : "ring-1 ring-border text-muted-foreground"
-                    }`}
+                    className="text-xs font-medium px-2 py-0.5 rounded shrink-0 bg-[#ffffff00] text-[#000000] border-t-[1px] border-r-[1px] border-b-[1px] border-l-[1px] rounded-tl-[2px] rounded-tr-[2px] rounded-br-[2px] rounded-bl-[2px] pl-[7px] pr-[7px]"
                   >
                     {p.status}
                   </span>
