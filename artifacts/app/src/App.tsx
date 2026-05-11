@@ -21,7 +21,7 @@ function ThemeToggle() {
     <button
       onClick={toggle}
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      className="p-1.5 rounded text-muted-foreground hover:text-foreground transition-colors"
+      className="ml-3 p-1.5 rounded text-muted-foreground hover:text-foreground transition-colors border-l border-border"
     >
       {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
     </button>
@@ -32,20 +32,29 @@ function Nav() {
   const [location] = useLocation();
   return (
     <nav className="bg-background border-b border-border sticky top-0 z-20">
-      <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-        <Link href="/" className="text-sm tracking-tight font-normal">ADHD</Link>
-        <div className="flex items-center gap-1">
-          {navLinks.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="px-3 py-1.5 text-xs font-medium rounded transition-colors bg-foreground text-background pl-[10px] pr-[10px] rounded-tl-[2px] rounded-tr-[2px] rounded-br-[2px] rounded-bl-[2px] border-t-[#000000] border-r-[#000000] border-b-[#000000] border-l-[#000000] border-t-[1px] border-r-[1px] border-b-[1px] border-l-[1px]"
-            >
-              {l.label}
-            </Link>
-          ))}
-          <ThemeToggle />
+      <div className="max-w-5xl mx-auto px-6 h-14 flex items-center gap-6">
+        <Link href="/" className="text-sm font-bold tracking-tight shrink-0">
+          ADHD Policy Clearinghouse
+        </Link>
+        <div className="flex items-center gap-1 flex-1">
+          {navLinks.map((l) => {
+            const active = location === l.href;
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                className={`px-3 py-1.5 text-xs font-medium rounded transition-colors ${
+                  active
+                    ? "text-foreground underline underline-offset-4 decoration-foreground/40"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
         </div>
+        <ThemeToggle />
       </div>
     </nav>
   );

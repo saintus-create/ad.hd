@@ -135,7 +135,11 @@ export default function Policies() {
                 <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
                   <h2 className="text-base font-semibold">{p.title}</h2>
                   <span
-                    className="text-xs font-medium px-2 py-0.5 rounded shrink-0 bg-[#ffffff00] text-[#000000] border-t-[1px] border-r-[1px] border-b-[1px] border-l-[1px] rounded-tl-[2px] rounded-tr-[2px] rounded-br-[2px] rounded-bl-[2px] pl-[7px] pr-[7px]"
+                    className={`text-xs font-medium px-2 py-0.5 rounded shrink-0 ${
+                      p.status === "Active"
+                        ? "bg-foreground text-background"
+                        : "ring-1 ring-foreground/25 text-muted-foreground"
+                    }`}
                   >
                     {p.status}
                   </span>
