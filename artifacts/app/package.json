@@ -76,6 +76,7 @@
   },
   "dependencies": {
     "@uswds/uswds": "^3.13.0",
+    "cobe": "^2.0.1",
     "magicui": "github:saintus-create/magicui",
     "motion": "^12.38.0",
     "react-simple-maps": "^3.0.0",
