@@ -33,9 +33,7 @@ function Nav() {
   return (
     <nav className="bg-background border-b border-border sticky top-0 z-20">
       <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-        <Link href="/" className="text-sm font-bold tracking-tight">
-          ADHD Policy Clearinghouse
-        </Link>
+        <Link href="/" className="text-sm tracking-tight font-normal">ADHD</Link>
         <div className="flex items-center gap-1">
           {navLinks.map((l) => (
             <Link
