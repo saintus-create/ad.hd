@@ -39,11 +39,7 @@ function Nav() {
             <Link
               key={l.href}
               href={l.href}
-              className={`px-3 py-1.5 text-xs font-medium rounded transition-colors ${
-                location === l.href
-                  ? "bg-foreground text-background"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
+              className="px-3 py-1.5 text-xs font-medium rounded transition-colors bg-foreground text-background pl-[10px] pr-[10px] rounded-tl-[2px] rounded-tr-[2px] rounded-br-[2px] rounded-bl-[2px] border-t-[#000000] border-r-[#000000] border-b-[#000000] border-l-[#000000] border-t-[1px] border-r-[1px] border-b-[1px] border-l-[1px]"
             >
               {l.label}
             </Link>
