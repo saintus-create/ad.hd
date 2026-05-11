@@ -61,9 +61,7 @@ function Nav() {
       <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
 
         {/* Brand */}
-        <Link href="/" className="text-sm font-semibold tracking-tight">
-          ADHD Policy Clearinghouse
-        </Link>
+        <Link href="/" className="text-sm font-semibold tracking-tight">ADHD</Link>
 
         {/* Right controls */}
         <div className="flex items-center gap-1">
@@ -79,7 +77,6 @@ function Nav() {
           </button>
         </div>
       </div>
-
       {/* Popover dropdown */}
       <div
         aria-hidden={!open}
