@@ -1,5 +1,6 @@
+import { useEffect, useRef, useState } from "react";
 import { Switch, Route, Router as WouterRouter, Link, useLocation } from "wouter";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, Menu, X } from "lucide-react";
 import { ThemeProvider, useTheme } from "@/contexts/theme";
 import Home from "@/pages/home";
 import Policies from "@/pages/policies";
@@ -21,7 +22,7 @@ function ThemeToggle() {
     <button
       onClick={toggle}
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      className="ml-3 p-1.5 rounded text-muted-foreground hover:text-foreground transition-colors border-l border-border"
+      className="p-2 text-muted-foreground hover:text-foreground transition-colors"
     >
       {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
     </button>
@@ -30,31 +31,86 @@ function ThemeToggle() {
 
 function Nav() {
   const [location] = useLocation();
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [location]);
+
+  useEffect(() => {
+    if (!open) return;
+    function handleClick(e: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    function handleKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setOpen(false);
+    }
+    document.addEventListener("mousedown", handleClick);
+    document.addEventListener("keydown", handleKey);
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+      document.removeEventListener("keydown", handleKey);
+    };
+  }, [open]);
+
   return (
-    <nav className="bg-background border-b border-border sticky top-0 z-20">
-      <div className="max-w-5xl mx-auto px-6 h-14 flex items-center gap-6">
-        <Link href="/" className="text-sm font-bold tracking-tight shrink-0">
+    <nav className="bg-background border-b border-border sticky top-0 z-20" ref={menuRef}>
+      <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+
+        {/* Brand */}
+        <Link href="/" className="text-sm font-semibold tracking-tight">
           ADHD Policy Clearinghouse
         </Link>
-        <div className="flex items-center gap-1 flex-1">
-          {navLinks.map((l) => {
-            const active = location === l.href;
-            return (
-              <Link
-                key={l.href}
-                href={l.href}
-                className={`px-3 py-1.5 text-xs font-medium rounded transition-colors ${
-                  active
-                    ? "text-foreground underline underline-offset-4 decoration-foreground/40"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {l.label}
-              </Link>
-            );
-          })}
+
+        {/* Right controls */}
+        <div className="flex items-center gap-1">
+          <ThemeToggle />
+          <button
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {open ? <X className="w-3.5 h-3.5" /> : <Menu className="w-3.5 h-3.5" />}
+            <span>Menu</span>
+          </button>
         </div>
-        <ThemeToggle />
+      </div>
+
+      {/* Popover dropdown */}
+      <div
+        aria-hidden={!open}
+        className={`absolute right-0 left-0 bg-background border-b border-border overflow-hidden transition-all duration-200 ${
+          open ? "max-h-72 opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="max-w-5xl mx-auto px-6 py-4">
+          <ul className="flex flex-col gap-0.5">
+            {navLinks.map((l) => {
+              const active = location === l.href;
+              return (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className={`flex items-center gap-3 px-2 py-2.5 text-sm rounded transition-colors group ${
+                      active ? "text-foreground font-semibold" : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    <span
+                      className={`w-1 h-1 rounded-full shrink-0 transition-colors ${
+                        active ? "bg-foreground" : "bg-transparent group-hover:bg-foreground/30"
+                      }`}
+                    />
+                    {l.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </nav>
   );
@@ -65,7 +121,7 @@ function Footer() {
     <footer className="border-t border-border mt-auto">
       <div className="max-w-5xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <p className="text-xs text-muted-foreground">
-          Built with USWDS · Open access · No login required
+          ADHD Policy Clearinghouse · Open access · No login required
         </p>
         <div className="flex gap-4">
           {navLinks.slice(1).map((l) => (
