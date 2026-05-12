@@ -13,6 +13,12 @@
     <meta name="twitter:title" content="App" />
     <meta name="twitter:description" content="App — built on Replit. Update this description to reflect the app." />
     <link rel="icon" type="image/svg+xml" href="/ad.hd/favicon.svg" />
+    <script>
+      (function() {
+        var p = new URLSearchParams(window.location.search).get('p');
+        if (p) window.history.replaceState(null, '', '/ad.hd' + p);
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
